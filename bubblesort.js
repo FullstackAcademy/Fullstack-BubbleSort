@@ -1,10 +1,13 @@
-const bubbleSort = (arr) => {
+function defaultComparison (a, b) {
+  return a - b
+}
+const bubbleSort = (arr, comparison=defaultComparison) => {
     let counter = 0;
     let swaps = true
     while(swaps){
         swaps = false
         for (let i = 0; i<(arr.length-counter); i++){
-            if (arr[i] > arr[i+1]){
+            if (comparison(arr[i],arr[i+1]) > 0){
             arr = swap(arr,i,i+1)
             swaps = true
             }
